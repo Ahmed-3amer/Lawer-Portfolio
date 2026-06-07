@@ -508,7 +508,7 @@ address {
 .hero-heading {
   font-size: clamp(var(--fs-2xl), 4vw, var(--fs-4xl));
   font-weight: 900;
-  line-height: 1.15;
+  line-height: 1.30;
   letter-spacing: -0.03em;
   color: var(--clr-white);
   margin-bottom: var(--sp-6);
@@ -1332,7 +1332,7 @@ a.contact-detail-value:hover {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   gap: var(--sp-12);
-  padding-bottom: var(--sp-12);
+  padding-bottom: var(--sp-6);
   border-bottom: 1px solid var(--clr-border);
 }
 
