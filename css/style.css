@@ -261,7 +261,7 @@ address {
 }
 
 /* Nav CTA */
-/* .btn-cta-nav {
+.btn-cta-nav {
   background: var(--clr-gold);
   color: var(--clr-primary);
   padding: var(--sp-2) var(--sp-6);
@@ -276,7 +276,7 @@ address {
   color: var(--clr-primary);
   transform: translateY(-1px);
   box-shadow: var(--shadow-gold);
-} */
+}
 
 /* Submit Button */
 .btn-submit {
@@ -309,36 +309,12 @@ address {
 }
 
 /* Brand */
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-}
-
-.brand-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--clr-gold-dim);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--clr-gold);
-  font-size: var(--fs-lg);
-  transition: background var(--transition-base);
-}
-
-.navbar-brand:hover .brand-icon {
-  background: var(--clr-gold);
-  color: var(--clr-primary);
-}
-
 .brand-name {
-  font-size: var(--fs-lg);
-  font-weight: 800;
+  font-family: "Aref Ruqaa", serif;
+  font-size: var(--fs-2xl);
+  font-weight: 700;
   color: var(--clr-white);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
 }
 
 .brand-accent {
@@ -485,7 +461,7 @@ address {
 
 .decor-line--1 {
   width: 60%;
-  top: 30%;
+  top: 33%;
   right: -10%;
 }
 
@@ -530,7 +506,7 @@ address {
 }
 
 .hero-heading {
-  font-size: clamp(var(--fs-3xl), 5.5vw, var(--fs-5xl));
+  font-size: clamp(var(--fs-2xl), 4vw, var(--fs-4xl));
   font-weight: 900;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -560,7 +536,7 @@ address {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-block: var(--sp-20) var(--sp-4);
+  padding-block: var(--sp-24) var(--sp-4);
 }
 
 .hero-image-wrapper {
@@ -606,7 +582,6 @@ address {
 
 @media (max-width: 991.98px) {
   .hero-image-col {
-    /* padding: calc(var(--sp-24) + 60px) 0 var(--sp-8); */
     padding-block: var(--sp-32) var(--sp-12);
   }
 
@@ -629,7 +604,6 @@ address {
     text-align: center;
   }
 
-
   .hero-image {
     max-height: 460px;
   }
@@ -639,11 +613,15 @@ address {
     right: var(--sp-4);
     bottom: var(--sp-16);
   }
+
+  .decor-line {
+    height: 0;
+  }
 }
 
 @media (max-width: 575.98px) {
   .hero-heading {
-    font-size: var(--fs-3xl);
+    font-size: var(--fs-2xl);
   }
 
   /* .hero-badge {
@@ -739,6 +717,18 @@ address {
   font-weight: 600;
   margin-top: var(--sp-2);
   letter-spacing: 0.02em;
+}
+
+.stat-title {
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  color: var(--clr-text-dark);
+  line-height: 1.3;
+  margin-bottom: var(--sp-2);
+}
+
+.stat-card--accent .stat-title {
+  color: var(--clr-gold);
 }
 
 /* About Bio */
@@ -930,7 +920,7 @@ address {
 /* Timeline */
 .experience-timeline {
   position: relative;
-  padding: var(--sp-8) 0 var(--sp-10) var(--sp-12);
+  padding: var(--sp-8) 0 0 var(--sp-12);
   margin-top: var(--sp-10);
 }
 
@@ -1029,41 +1019,6 @@ address {
     right: -7px;
     left: auto;
   }
-}
-
-/* Achievement Cards */
-.achievement-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
-  padding: var(--sp-6);
-  text-align: center;
-  transition:
-    background var(--transition-base),
-    transform var(--transition-base),
-    border-color var(--transition-base);
-  cursor: default;
-}
-
-.achievement-card:hover {
-  background: rgba(212, 175, 55, 0.07);
-  border-color: rgba(212, 175, 55, 0.35);
-  transform: translateY(-4px);
-}
-
-.achievement-icon {
-  font-size: var(--fs-2xl);
-  color: var(--clr-gold);
-  margin-bottom: var(--sp-4);
-  display: block;
-}
-
-.achievement-text {
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.5;
-  margin: 0;
 }
 
 /* =============================================================
@@ -1178,23 +1133,6 @@ a.contact-detail-value:hover {
   color: var(--clr-white);
 }
 
-/* Map */
-.map-wrapper {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  box-shadow: var(--shadow-sm);
-}
-
-.map-wrapper iframe {
-  display: block;
-  filter: grayscale(20%);
-  transition: filter var(--transition-base);
-}
-
-.map-wrapper:hover iframe {
-  filter: grayscale(0%);
-}
 
 /* Contact Cards Grid */
 .contact-cards-grid {
