@@ -6,16 +6,12 @@
 
 'use strict';
 
-/* =============================================================
-   CONSTANTS
-   ============================================================= */
+/* === CONSTANTS === */
 const NAVBAR_SCROLL_THRESHOLD = 60;
 const NAV_OFFSET             = 80;   // fixed navbar height compensation
-const COUNTER_DURATION       = 2000; // ms
+// const COUNTER_DURATION       = 2000; // ms
 
-/* =============================================================
-   UTILITY HELPERS
-   ============================================================= */
+/* === UTILITY HELPERS === */
 
 /** Throttle a callback to fire at most once per animation frame */
 function throttleRAF(fn) {
@@ -32,13 +28,11 @@ function throttleRAF(fn) {
 }
 
 /** Ease-out quad for counter animation */
-function easeOutQuad(t) {
-  return t * (2 - t);
-}
+// function easeOutQuad(t) {
+//   return t * (2 - t);
+// }
 
-/* =============================================================
-   1. AOS — SCROLL ANIMATIONS
-   ============================================================= */
+/* === 1. AOS — SCROLL ANIMATIONS === */
 function initAOS() {
   if (typeof AOS === 'undefined') return;
   AOS.init({
@@ -50,9 +44,7 @@ function initAOS() {
   });
 }
 
-/* =============================================================
-   2. NAVBAR — SCROLL BEHAVIOR & ACTIVE LINKS
-   ============================================================= */
+/* === 2. NAVBAR — SCROLL BEHAVIOR & ACTIVE LINKS === */
 function initNavbar() {
   const navbar   = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('#navMenu .nav-link');
@@ -89,9 +81,7 @@ function initNavbar() {
   onScroll();
 }
 
-/* =============================================================
-   3. SMOOTH SCROLLING
-   ============================================================= */
+/* === 3. SMOOTH SCROLLING === */
 function initSmoothScroll() {
   document.addEventListener('click', e => {
     const link = e.target.closest('a[href^="#"]');
@@ -114,9 +104,7 @@ function initSmoothScroll() {
   });
 }
 
-/* =============================================================
-   4. MOBILE NAVBAR — CLOSE ON OUTSIDE CLICK
-   ============================================================= */
+/* === 4. MOBILE NAVBAR — CLOSE ON OUTSIDE CLICK === */
 function initMobileMenu() {
   const navMenu = document.getElementById('navMenu');
   if (!navMenu) return;
@@ -143,60 +131,54 @@ function closeMobileMenu() {
   toggler?.setAttribute('aria-expanded', 'false');
 }
 
-/* =============================================================
-   5. ANIMATED COUNTERS
-   ============================================================= */
-function initCounters() {
-  const counters = document.querySelectorAll('.stat-number[data-target]');
-  if (!counters.length) return;
+/* === 5. ANIMATED COUNTERS === */
+// function initCounters() {
+//   const counters = document.querySelectorAll('.stat-number[data-target]');
+//   if (!counters.length) return;
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      animateCounter(entry.target);
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.6 });
+//   const observer = new IntersectionObserver(entries => {
+//     entries.forEach(entry => {
+//       if (!entry.isIntersecting) return;
+//       animateCounter(entry.target);
+//       observer.unobserve(entry.target);
+//     });
+//   }, { threshold: 0.6 });
 
-  counters.forEach(counter => observer.observe(counter));
-}
+//   counters.forEach(counter => observer.observe(counter));
+// }
 
-function animateCounter(el) {
-  const target    = parseInt(el.dataset.target, 10);
-  const startTime = performance.now();
+// function animateCounter(el) {
+//   const target    = parseInt(el.dataset.target, 10);
+//   const startTime = performance.now();
 
-  function step(now) {
-    const elapsed  = now - startTime;
-    const progress = Math.min(elapsed / COUNTER_DURATION, 1);
-    const value    = Math.floor(easeOutQuad(progress) * target);
+//   function step(now) {
+//     const elapsed  = now - startTime;
+//     const progress = Math.min(elapsed / COUNTER_DURATION, 1);
+//     const value    = Math.floor(easeOutQuad(progress) * target);
 
-    el.textContent = value.toLocaleString('ar-EG');
+//     el.textContent = value.toLocaleString('ar-EG');
 
-    if (progress < 1) requestAnimationFrame(step);
-    else el.textContent = target.toLocaleString('ar-EG');
-  }
+//     if (progress < 1) requestAnimationFrame(step);
+//     else el.textContent = target.toLocaleString('ar-EG');
+//   }
 
-  requestAnimationFrame(step);
-}
+//   requestAnimationFrame(step);
+// }
 
 
-/* =============================================================
-   7. FOOTER — DYNAMIC YEAR
-   ============================================================= */
+/* === 7. FOOTER — DYNAMIC YEAR === */
 function initFooterYear() {
   const el = document.getElementById('footer-year');
   if (el) el.textContent = new Date().getFullYear();
 }
 
-/* =============================================================
-   INIT — Run after DOM + deferred scripts are ready
-   ============================================================= */
+/* === INIT — Run after DOM + deferred scripts are ready === */
 function init() {
   initAOS();
   initNavbar();
   initSmoothScroll();
   initMobileMenu();
-  initCounters();
+  // initCounters();
   initFooterYear();
 }
 

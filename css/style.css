@@ -1,6 +1,4 @@
-/* =============================================================
-   ROOT & DESIGN TOKENS
-   ============================================================= */
+/* === ROOT & DESIGN TOKENS === */
 :root {
   /* Color Palette */
   --clr-primary: #0f172a;
@@ -68,9 +66,7 @@
   --section-py: var(--sp-24);
 }
 
-/* =============================================================
-   RESET & BASE
-   ============================================================= */
+/* === RESET & BASE === */
 *,
 *::before,
 *::after {
@@ -124,9 +120,7 @@ address {
   font-style: normal;
 }
 
-/* =============================================================
-   SCROLLBAR (WebKit)
-   ============================================================= */
+/* === SCROLLBAR (WebKit) === */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -138,9 +132,7 @@ address {
   border-radius: var(--radius-full);
 }
 
-/* =============================================================
-   TYPOGRAPHY UTILITIES
-   ============================================================= */
+/* === TYPOGRAPHY UTILITIES === */
 .accent-text {
   color: var(--clr-gold);
 }
@@ -187,9 +179,7 @@ address {
   color: var(--clr-gold);
 }
 
-/* =============================================================
-   BUTTONS
-   ============================================================= */
+/* === BUTTONS === */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -287,9 +277,7 @@ address {
   margin-top: var(--sp-2);
 }
 
-/* =============================================================
-   NAVBAR
-   ============================================================= */
+/* === NAVBAR === */
 #navbar {
   padding: var(--sp-5) 0;
   background: transparent;
@@ -408,9 +396,7 @@ address {
   }
 }
 
-/* =============================================================
-   HERO SECTION
-   ============================================================= */
+/* === HERO SECTION === */
 #hero {
   background: linear-gradient(
     160deg,
@@ -633,16 +619,24 @@ address {
   } */
 }
 
-/* =============================================================
-   ABOUT SECTION
-   ============================================================= */
+/* === ABOUT SECTION === */
 #about {
   padding: var(--section-py) 0;
   background: var(--clr-bg);
 }
 
 /* Stats Stack */
-.stats-stack {
+
+/* الستايل الخاص بالصورة */
+.about-image {
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+}
+/* الستايل الخاص بالصورة */
+
+/* .stats-stack {
   display: flex;
   flex-direction: column;
   gap: var(--sp-4);
@@ -729,7 +723,7 @@ address {
 
 .stat-card--accent .stat-title {
   color: var(--clr-gold);
-}
+} */
 
 /* About Bio */
 .about-bio {
@@ -739,8 +733,15 @@ address {
   margin-bottom: var(--sp-5);
 }
 
+.about-subtitle {
+  font-size: clamp(var(--fs-md), 2vw, var(--fs-xl));
+  font-weight: 700;
+  color: var(--clr-text-muted);
+  margin-bottom: var(--sp-5);
+}
+
 /* Specialties List */
-.specialties-list {
+/* .specialties-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--sp-3) var(--sp-6);
@@ -762,15 +763,15 @@ address {
   flex-shrink: 0;
 }
 
-@media (max-width: 575.98px) {
-  .specialties-list {
-    grid-template-columns: 1fr;
-  }
-}
+} */
 
-/* =============================================================
-   SERVICES SECTION
-   ============================================================= */
+@media (max-width: 575.98px) {
+  #about {
+    padding-bottom: var(--sp-12)!important;
+  }
+  }
+
+/* === SERVICES SECTION === */
 #services {
   padding: var(--section-py) 0;
   background: var(--clr-bg-alt);
@@ -881,9 +882,7 @@ address {
   line-height: 1.85;
 }
 
-/* =============================================================
-   CERTIFICATES / EXPERIENCE SECTION
-   ============================================================= */
+/* === CERTIFICATES / EXPERIENCE SECTION === */
 #certificates {
   padding: var(--section-py) 0;
   background: var(--clr-primary);
@@ -1021,9 +1020,7 @@ address {
   }
 }
 
-/* =============================================================
-   CONTACT SECTION
-   ============================================================= */
+/* === CONTACT SECTION === */
 #contact {
   padding: var(--section-py) 0;
   background: var(--clr-bg);
@@ -1211,11 +1208,6 @@ a.contact-detail-value:hover {
     color var(--transition-base);
 }
 
-/* .contact-card:not(.contact-card--static):hover .contact-card__icon {
-  background: var(--clr-gold);
-  color: var(--clr-primary);
-} */
-
 .contact-card__body {
   display: flex;
   flex-direction: column;
@@ -1270,8 +1262,8 @@ a.contact-detail-value:hover {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-3);
-  background: #25d366;
-  color: var(--clr-white);
+  background: var(--clr-gold);
+  color: var(--clr-primary);
   font-family: "Cairo", sans-serif;
   font-size: var(--fs-sm);
   font-weight: 700;
@@ -1319,9 +1311,7 @@ a.contact-detail-value:hover {
   }
 }
 
-/* =============================================================
-   FOOTER
-   ============================================================= */
+/* === FOOTER === */
 #site-footer {
   background: var(--clr-primary);
   border-top: 1px solid var(--clr-border);
@@ -1420,16 +1410,12 @@ a.contact-detail-value:hover {
   }
 }
 
-/* =============================================================
-   AOS OVERRIDES — smoother feel
-   ============================================================= */
+/* === AOS OVERRIDES — smoother feel === */
 [data-aos] {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* =============================================================
-   UTILITY — Section-level spacing consistency
-   ============================================================= */
+/* === UTILITY — Section-level spacing consistency === */
 #about,
 #services,
 #contact {
@@ -1440,18 +1426,14 @@ a.contact-detail-value:hover {
   padding: var(--sp-24) 0;
 }
 
-/* =============================================================
-   FOCUS VISIBLE — Accessibility
-   ============================================================= */
+/* === FOCUS VISIBLE — Accessibility === */
 :focus-visible {
   outline: 2px solid var(--clr-gold);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
-/* =============================================================
-   PRINT — Hide decorative elements
-   ============================================================= */
+/* === PRINT — Hide decorative elements === */
 @media print {
   #navbar,
   .hero-bg-decor,
