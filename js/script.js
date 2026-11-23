@@ -172,6 +172,23 @@ function initFooterYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
+/* === 8. BACK TO TOP BUTTON === */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  const toggle = () => {
+    btn.classList.toggle('is-visible', window.scrollY > 300);
+  };
+
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
 /* === INIT — Run after DOM + deferred scripts are ready === */
 function init() {
   initAOS();
@@ -180,6 +197,7 @@ function init() {
   initMobileMenu();
   // initCounters();
   initFooterYear();
+  initBackToTop();
 }
 
 if (document.readyState === 'loading') {
